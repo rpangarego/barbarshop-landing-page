@@ -1,0 +1,936 @@
+:root {
+  --clr-white: #fff;
+  --clr-light: #e4e4e4;
+  --clr-grey: rgb(230, 230, 230);
+  --clr-dark: #161a1d;
+  --clr-dark-sec: #23272a;
+  --clr-red: #e71d36;
+  --clr-blue: #424ede;
+  --section-padding: 2.5rem 0 4rem 0;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  color: var(--clr-white);
+  background-color: var(--clr-dark);
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-grey);
+  transition-duration: 250ms;
+}
+
+a:active,
+a:hover {
+  color: var(--clr-white);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 80%;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+h1.heading {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+p.sub-heading {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  outline: none;
+  border: 1px solid var(--clr-white);
+  border-radius: 5px;
+  color: var(--clr-white);
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 250ms ease-in-out, background 250ms ease-in-out;
+}
+
+.btn:hover {
+  border: none;
+  color: var(--clr-dark);
+  background-color: var(--clr-white);
+}
+
+.brand-logo img,
+.barbershop-info img.footer-logo {
+  width: 40px;
+  margin-right: 0.5rem;
+}
+
+.center-title {
+  text-align: center;
+  margin: 0 auto;
+}
+
+h2.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h2.section-title::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: -6px;
+  background: var(--clr-white);
+  text-decoration: underline;
+}
+
+/* navbar */
+nav.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 20px 0;
+  max-height: 60px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--clr-white);
+  box-shadow: 0 5px 10px rgba(80, 80, 80, 0.6);
+  z-index: 5;
+  transition: background 250ms ease-in-out;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-menu,
+.nav-close {
+  display: none;
+  width: 35px;
+}
+
+.nav-links {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-item {
+  margin-left: 1.2rem;
+}
+
+.nav-item:hover,
+.nav-item:active {
+  font-weight: 500;
+}
+
+/* section-home */
+section.home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("../images/background.webp") no-repeat fixed center/cover;
+}
+
+section.home::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: var(--bg-overlay);
+}
+
+section.home::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4rem;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, var(--clr-dark));
+  z-index: 1;
+}
+
+section.home .home-top {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-top .home-wrapper {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* section-about */
+section.about {
+  padding: var(--section-padding);
+  width: 100%;
+}
+
+.about-content {
+  margin-top: 2rem;
+  padding: 0 5rem;
+}
+
+.about-content .about-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.about-item h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.about-item p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.about-item > .about-img {
+  position: relative;
+  width: 16rem;
+  height: 21rem;
+  border: 2px solid var(--clr-white);
+  margin: 0 auto;
+}
+
+.about-item > .about-img::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: -1rem;
+  right: -1rem;
+  border: 2px solid var(--clr-white);
+  z-index: -1;
+}
+
+.about-item > .about-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.about-item.grid-reverse .about-img {
+  order: 2;
+}
+.about-item.grid-reverse .about-desc {
+  order: 1;
+}
+
+/* section: mini-gallery */
+section.mini-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.gallery-img {
+  overflow: hidden;
+}
+
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+
+  transition: transform 300ms ease-in-out;
+  cursor: pointer;
+}
+
+.gallery-img img:hover {
+  transform: scale(1.2);
+}
+
+/* section: services */
+section.services {
+  padding: var(--section-padding);
+}
+
+.service-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  grid-gap: 3rem;
+}
+
+.service-card {
+  padding: 1rem 1rem 0 1rem;
+  border: 1px solid var(--clr-white);
+  border-radius: 10px;
+  background-color: var(--clr-dark-sec);
+  transition: transform 250ms ease-in-out;
+}
+
+.service-card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.service-title {
+  font-size: 1.1rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--clr-white);
+}
+
+.service-items {
+  margin: 1rem 1rem 0 1rem;
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 90% 1fr;
+  margin-bottom: 1.3rem;
+  align-items: center;
+}
+
+.service-info > h4 {
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.service-info > p {
+  font-size: 0.85rem;
+  color: var(--clr-grey);
+}
+
+h5.service-price {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* section:our team */
+section.team {
+  padding: var(--section-padding);
+  background-color: var(--clr-dark-sec);
+}
+
+.team-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+}
+
+.team-card {
+  border: 2px solid var(--clr-white);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;
+}
+
+.team-card:hover {
+  transform: scale(1.1);
+}
+
+.team-card .img-top {
+  position: relative;
+  width: 100%;
+  height: 14rem;
+  margin-bottom: 3rem;
+}
+
+.team-card .img-top::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.team-card .img-top > img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.team-card .img-top .profile-pic {
+  position: absolute;
+  width: 4.5rem;
+  height: 4.5rem;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  border: 3px solid var(--clr-white);
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.profile-pic > img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.team-card .profile-desc {
+  margin: 1rem;
+  text-align: center;
+}
+
+.profile-desc .profile-name {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+/* section:testimonials */
+section.testimonials {
+  padding: var(--section-padding);
+}
+
+.testimonials-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+.testimonial-card {
+  padding: 1.5rem 1.4rem;
+  border: 2px solid var(--clr-white);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.testimonial-card .card-content::before {
+  display: block;
+  content: open-quote;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 2rem;
+}
+
+.testimonial-card .card-content::after {
+  content: no-close-quote;
+}
+
+.testimonial-card .card-content {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.testimonial-card .card-footer {
+  font-weight: 300;
+}
+
+/* section: map-form */
+section.map-form {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 2fr 1fr;
+  background-color: var(--clr-dark-sec);
+}
+
+.map {
+  position: relative;
+  cursor: pointer;
+}
+
+.map > img.map-image {
+  width: 100%;
+  height: 100%;
+}
+
+.map .map-overlay {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  font-size: 1.4rem;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: opacity 300ms ease-in-out;
+}
+.map:hover .map-overlay {
+  opacity: 1;
+}
+
+.book-form {
+  margin: 2rem;
+  padding: 2rem;
+  border: 2px solid var(--clr-white);
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.book-form h4.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--clr-white);
+  margin-bottom: 1.4rem;
+}
+
+.book-form .form-group {
+  width: 100%;
+}
+
+.book-form input.form-style,
+.book-form textarea.textarea-style {
+  width: 100%;
+  padding: 8px;
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgb(172, 172, 172);
+  outline: none;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-family: Montserrat, sans;
+  transition: border 300ms ease-in-out;
+}
+
+.book-form input.form-style:focus,
+.book-form textarea.textarea-style:focus {
+  border: 1px solid var(--clr-white);
+}
+
+.book-form button.btn-form {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: Montserrat, sans;
+  background-color: var(--clr-white);
+  color: var(--clr-dark);
+  margin-top: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 300ms ease-in-out;
+}
+
+.book-form button.btn-form:hover,
+.book-form button.btn-form:active {
+  background-color: var(--clr-light);
+}
+
+/* section: footer */
+footer.footer {
+  padding: 2rem;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.barbershop-info .title {
+  display: flex;
+  align-items: center;
+}
+
+.barbershop-info .title h4 {
+  font-weight: 500;
+}
+
+.barbershop-info p,
+.copyright p,
+.social-media p {
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.social-media {
+  text-align: right;
+}
+
+.social-media a > img {
+  width: 1.5rem;
+  margin-top: 6px;
+  margin-left: 8px;
+  transition: transform 300ms ease-in-out;
+}
+
+.social-media a > img:hover {
+  transform: scale(1.2);
+}
+
+.copyright {
+  text-align: center;
+}
+
+/* ===== media queries ===== */
+@media screen and (max-width: 900px) {
+  h1.heading {
+    font-size: 2.4rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-links .nav-close {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 1.4rem;
+    right: 3rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 101%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: left 500ms ease-in-out;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-item {
+    margin: 8px 0;
+  }
+
+  /* about */
+  .about-content {
+    padding: 0;
+  }
+
+  .about-item h3 {
+    font-size: 1.4rem;
+  }
+
+  .about-item p {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .about-item > .about-img {
+    width: 12rem;
+    height: 15rem;
+  }
+
+  /* section: services */
+  .service-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .service-card {
+    flex: 0 0 calc(42% - 20px);
+  }
+
+  .service-card:active {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  .service-title {
+    font-size: 1.1rem;
+  }
+
+  .service-item {
+    justify-content: center;
+  }
+
+  .service-info > h4 {
+    font-size: 0.9rem;
+  }
+
+  .service-info > p {
+    font-size: 0.8rem;
+  }
+
+  h5.service-price {
+    font-size: 1rem;
+  }
+
+  /* section:our team */
+  .team-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+  }
+
+  .team-card {
+    cursor: initial;
+  }
+
+  .team-card:hover {
+    transform: none;
+  }
+
+  /* section:testimonials */
+  .testimonials-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .testimonial-card .card-content {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-card .card-footer {
+    font-size: 0.9rem;
+  }
+
+  /* section: map-form */
+  section.map-form {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    background-color: var(--clr-dark-sec);
+  }
+
+  .map {
+    max-height: 20rem;
+  }
+
+  .map:active .map-overlay {
+    opacity: 1;
+  }
+
+  .book-form {
+    margin: 2rem auto;
+  }
+
+  /* section: footer */
+  footer.footer {
+    padding: 2rem;
+  }
+
+  .footer-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .barbershop-info .title {
+    display: flex;
+    align-items: center;
+  }
+
+  .barbershop-info .title h4 {
+    font-weight: 500;
+  }
+
+  .barbershop-info p,
+  .copyright p,
+  .social-media p {
+    font-weight: 400;
+    font-size: 0.95rem;
+  }
+
+  .social-media {
+    order: 2;
+    text-align: right;
+  }
+
+  .social-media a > img {
+    width: 1.5rem;
+    margin-top: 6px;
+    margin-left: 8px;
+    transition: transform 300ms ease-in-out;
+  }
+
+  .social-media a > img:hover {
+    transform: scale(1.2);
+  }
+
+  .copyright {
+    order: 3;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+  .copyright p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .service-card {
+    flex: 0 0 calc(60% - 20px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1.heading {
+    font-size: 2rem;
+  }
+  p.sub-heading {
+    font-size: 1rem;
+  }
+  h2.section-title {
+    margin-bottom: 2.5rem;
+    font-size: 1.3rem;
+  }
+  h2.section-title::after {
+    height: 3px;
+  }
+
+  /* about */
+  .about-content {
+    margin: 0 auto;
+  }
+  .about-content .about-item {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .about-content .about-item:nth-child(2) {
+    margin-bottom: 0;
+  }
+  .about-item h3 {
+    font-size: 1.3rem;
+  }
+  .about-item p {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  .about-item > .about-img {
+    width: 12rem;
+    height: 15rem;
+    margin-bottom: 1rem;
+  }
+  .about-item p {
+    font-size: 1rem;
+  }
+  .about-item.grid-reverse .about-img {
+    order: 1;
+  }
+  .about-item.grid-reverse .about-desc {
+    order: 2;
+  }
+
+  /* section: mini-gallery */
+  section.mini-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mini-gallery .gallery-img:last-of-type {
+    display: none;
+  }
+  .gallery-img img:hover {
+    transform: none;
+  }
+
+  /* section: service-card */
+  .service-card {
+    flex: 0 0 calc(90% - 20px);
+  }
+
+  /* section: team */
+  .team-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  /* section:testimonials */
+  .testimonials-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+
+  /* map overlay */
+  .map .map-overlay {
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* footer */
+  footer.footer {
+    padding: 2rem;
+  }
+
+  .footer-wrapper {
+    /* display: block; */
+    justify-content: center;
+    text-align: center;
+  }
+
+  .barbershop-info .title {
+    display: block;
+    text-align: center;
+  }
+
+  .barbershop-info .title h4 {
+    font-size: 1rem;
+  }
+
+  .barbershop-info p,
+  .copyright p,
+  .social-media p {
+    font-weight: 400;
+    font-size: 0.95rem;
+  }
+
+  .social-media {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+  }
+
+  .copyright p {
+    font-size: 0.8rem;
+  }
+}
